@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Homepage</title>
+</head>
+<body>
+    <p>This is the log 1 of :<h4> flask  tutorial </h4></p>
+    <p>place holder contents: {{data}}</p>   <!-- place holder ({{ variable }}) replaces variable
+       with the value it holds. Here my variable name  is 'data' -->
+
+    {% for x in range(0,10) %}
+        {% if x%2 == 1 %}
+            <p>{{x}}</p>
+        {% endif %}
+    {% endfor %}
+    <hr>
+    {%for item in list%}
+        {%if item == "user01" %}
+
+        {%else%}
+            <p>user={{item}}</p>
+        {%endif%}
+    {%endfor%}
+
+</body>
+</html>
