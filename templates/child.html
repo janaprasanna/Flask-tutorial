@@ -1,0 +1,12 @@
+{% extends "parent.html" %}
+
+{%block content%}
+    inheritance-tutorial
+{%endblock%}
+
+{%block data%}
+    <h3>sample text to check inheritance</h3>
+    {%for i in list%}
+        <p>value:{{i}}</p>
+    {%endfor%}
+{%endblock%}
