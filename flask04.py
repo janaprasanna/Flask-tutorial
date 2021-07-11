@@ -22,3 +22,8 @@ def user(usr):
 
 if __name__=="__main__":
     app.run(debug=True)
+
+
+
+
+'''method =["POST","GET"] - specifying the webpage of which type of method it is going to use. '''
