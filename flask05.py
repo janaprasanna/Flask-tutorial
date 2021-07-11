@@ -7,7 +7,7 @@ app.secret_key = "jana"
 def home():
     return render_template('child.html')
 
-@app.route('/login')
+@app.route('/login',methods=["POST","GET"])
 def login():
     if request.method == "POST":
         username = request.form["name"]
