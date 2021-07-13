@@ -13,6 +13,8 @@
 <p>Welcome, {{user}}</p>
 <form action="#" method="POST">
     <input type="email" name="email" placeholder="Type your email" value="{{email if email}}"/>
+    <!-- the variable 'email' that is passed is to this template being checked if it has a value.
+    if it does have one, it gets stored inside value.-->
     <input type="submit" value="submit"/>
 
 </form>
