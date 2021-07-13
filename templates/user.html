@@ -10,13 +10,12 @@
             {%endfor%}
         {%endif%}
     {%endwith%}
-<p>Welcome, {{user}}</p>
-<form action="#" method="POST">
-    <input type="email" name="email" placeholder="Type your email" value="{{email if email}}"/>
+    <p>Welcome, {{user}}</p>
     <!-- the variable 'email' that is passed is to this template being checked if it has a value.
-    if it does have one, it gets stored inside value.-->
-    <input type="submit" value="submit"/>
-
-</form>
+        if it does have one, it gets stored inside value.-->
+    <form action="#" method="post">
+        <input type="email" name="email" placeholder="Type your email" value="{{email if email}}">
+        <input type="submit" value="submit">
+    </form>
 {%endblock%}
 
