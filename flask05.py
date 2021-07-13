@@ -1,5 +1,6 @@
 from flask import Flask,render_template,session,url_for,request,redirect
 from datetime import timedelta
+''' tutorial on sessions'''
 app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(minutes=5)
 app.secret_key = "jana"
@@ -9,6 +10,7 @@ def home():
     return render_template('child.html')
 
 @app.route('/login',methods=["POST","GET"])
+@app.route('/',methods=["POST","GET"])
 def login():
     if request.method == "POST":
         session.permanent = True
@@ -26,6 +28,7 @@ def login():
 def user():
     if "uname" in session:
         un = session["uname"]
+
         return f"<h4>Hello {un}! welcome to our website !</h4>"
     else:
         return redirect(url_for("login"))
@@ -38,6 +41,7 @@ def user():
 def logout():
     session.pop("uname",None)
     return redirect(url_for("login"))
+
 
 
 
