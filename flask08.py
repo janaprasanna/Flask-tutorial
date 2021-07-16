@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///users.sqlite3'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.permanent_session_lifetime = timedelta(minutes = 5)
+
 app.secret_key = "jana"
 db = SQLAlchemy(app)
 
@@ -49,7 +49,7 @@ def home():
 @app.route('/login',methods=["POST","GET"])
 def login():
     if request.method == "POST":
-        session.permanent = True
+
         '''permanent session enabled !'''
         username = request.form["name"]
         '''if a new user is filled in html form is grabbed via request.form query'''
@@ -126,6 +126,21 @@ def logout():
     session.pop("uname", None)
     session.pop("email", None)
     return redirect(url_for("login"))
+
+
+@app.route('/delete',methods=["POST","GET"])
+def rem_ac():
+    if request.method == "POST":
+        delusrn = request.form["delname"]
+        delusrm = request.form["delmail"]
+        users.query.filter_by(name=delusrn,email=delusrm).delete()
+        
+        
+        
+            
+        flash("Account deleted successfully !!")
+        return redirect(url_for("login"))
+    return render_template('delete_ac.html')
 
 
 

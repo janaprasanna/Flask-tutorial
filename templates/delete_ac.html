@@ -1,0 +1,20 @@
+{%extends "parent.html"%}
+
+{%block content%}Account delete{%endblock%}
+
+{%block data%}
+
+   <form action="#" method="POST">
+      <p>Enter the account Name to be deleted:</p>
+      <p><input type="text" name="delname"></p>
+      <p><input type="text" placeholder="Type your mail.." name="delmail"></p>
+      <p><input type="submit" value="Delete"></p>
+   </form>
+    {%with messages = get_flashed_messages()%}
+           {%if messages%}
+               {%for msg in messages%}
+                   <p>{{msg}}</p>
+               {%endfor%}
+           {%endif%}
+   {%endwith%}
+{%endblock%}
