@@ -29,6 +29,7 @@ class users(db.Model):
 @app.route('/view')
 def viewdb():
     return render_template('view.html',values=users.query.all())
+'''query.all() grabs all the users info and passes them as objects to the view.html template'''
 '''a query to check all the users and their info as a new html page'''
 
 
