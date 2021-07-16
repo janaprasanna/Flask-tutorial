@@ -25,7 +25,9 @@ class users(db.Model):
 
 
 
-
+@app.route('/view')
+def viewdb():
+    return render_template('view.html',values=users.query.all())
 
 
 

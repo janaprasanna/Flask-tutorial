@@ -1,0 +1,9 @@
+{%extends "parent.html"%}
+
+{%block content%} users-list {%endblock%}
+
+{%block data%}
+    {%for user in values%}
+        <p>Name:{{user.name}},Email:{{user.email}}</p>
+    {%endfor%}
+{%endblock%}
