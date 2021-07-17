@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from datetime import timedelta
 from flask_sqlalchemy import SQLAlchemy
+
 ''' tutorial on sql alchemy - adding,deleting and updating users'''
 
 
@@ -134,11 +135,10 @@ def rem_ac():
         delusrn = request.form["delname"]
         delusrm = request.form["delmail"]
         users.query.filter_by(name=delusrn,email=delusrm).delete()
-        
-        
-        
-            
+        db.session.commit()
+        username = session["uname"]
         flash("Account deleted successfully !!")
+        session.pop("uname",None)
         return redirect(url_for("login"))
     return render_template('delete_ac.html')
 
