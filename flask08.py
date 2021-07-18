@@ -136,9 +136,12 @@ def rem_ac():
         delusrm = request.form["delmail"]
         users.query.filter_by(name=delusrn,email=delusrm).delete()
         db.session.commit()
-        username = session["uname"]
+        username = session.get("uname")
+        if username:
+            session.pop("uname",None)
+            '''if a session is found with this user (logged in after a long time)
+            , it should delete them as well to avoid flash mssg bug.'''
         flash("Account deleted successfully !!")
-        session.pop("uname",None)
         return redirect(url_for("login"))
     return render_template('delete_ac.html')
 
