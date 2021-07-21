@@ -3,7 +3,12 @@
 {%block content%} users-list {%endblock%}
 
 {%block data%}
-    {%for user in values%}
-        <p>Name:{{user.name}},Email:{{user.email}}</p>
-    {%endfor%}
+    <table>
+        {%for user in values%}
+            <tr>
+                <td>{{user[0]}}</td>
+                <td>{{user[1]}}</td>
+            </tr>
+        {%endfor%}
+    </table>
 {%endblock%}

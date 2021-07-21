@@ -11,9 +11,11 @@
       {%endfor%}
     {%endif%}
   {%endwith%}
-  <form action="#" method="post">
+  <form action="#" method="POST">
     <p>Name:</p>
     <p><input type="text" name="name"></p>
+    <p> <input type="email" name="email" placeholder="Type your email" value="{{email if email}}"></p>
+    <p style="font-size:10px;">Dont worry! we wont share your email to anyone! feel safe to enter :)</p>
     <p><input type="submit" value="Login"></p>
   </form>
 {%endblock%}
